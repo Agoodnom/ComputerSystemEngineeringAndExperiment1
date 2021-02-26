@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+void main(void)
+{
+	int i;
+	double num;
+	
+	for (i=0; i<5; i++){
+		num=((double) i)/2 + i;
+		printf("num is %f \n", num);
+	}
+}
+gdb에서 
+break 8 로 8번째 줄에 break를 주고
+display num과 display i 로 num 값과 i 값을 확인했다.
+그랬더니 i가 int형으로 선언되었기 때문에 
+기존에 i/2는 소수점을 반환하지 못했다.
+예를들어 i = 1일때 num = 1.5가 되어야하나  
+i/2가 0.5가 되어야하나 0이되어 
+num = 1이되는 문제가 발생했다.
+따라서 위와같이 i를 double형으로 인식하게하여 제대로된 값이 나오게 해주었다.
